@@ -1,10 +1,10 @@
 ﻿@page "/admin/orders"
 @inherits OwningComponentBase<IOrderRepository>
-<OrderTable TableTitle="Unshipped Orders"
+<OrderTable TableTitle="Ожидают отправления"
             Orders="UnshippedOrders" ButtonLabel="Ship" OrderSelected="ShipOrder" />
-<OrderTable TableTitle="Shipped Orders"
+<OrderTable TableTitle="Отправлены"
             Orders="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder" />
-<button class="btn btn-info" @onclick="@(e => UpdateData())">Refresh Data</button>
+<button class="btn btn-info" @onclick="@(e => UpdateData())">Обновить данные</button>
 @code {
     public IOrderRepository Repository => Service;
     public IEnumerable<Order> AllOrders { get; set; }

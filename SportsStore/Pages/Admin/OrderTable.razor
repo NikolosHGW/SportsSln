@@ -10,8 +10,8 @@
                 <tr>
                     <td>@o.Name</td>
                     <td>@o.Zip</td>
-                    <th>Product</th>
-                    <th>Quantity</th>
+                    <th>Продукт</th>
+                    <th>Количество</th>
                     <td>
                         <button class="btn btn-sm btn-danger"
                                 @onclick="@(e => OrderSelected.InvokeAsync(o.OrderID))">
@@ -32,7 +32,7 @@
         }
         else
         {
-            <tr><td colspan="5" class="text-center">No Orders</td></tr>
+            <tr><td colspan="5" class="text-center">Нет заказов</td></tr>
         }
     </tbody>
 </table>

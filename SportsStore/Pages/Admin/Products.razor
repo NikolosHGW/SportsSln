@@ -6,9 +6,9 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
+            <th>Наименование</th>
+            <th>Категория</th>
+            <th>Цена</th>
             <td />
         </tr>
     </thead>
@@ -25,15 +25,15 @@
                     <td>
                         <NavLink class="btn btn-info btn-sm"
                                  href="@GetDetailsUrl(p.ProductID)">
-                            Details
+                            Подробнее
                         </NavLink>
                         <NavLink class="btn btn-warning btn-sm"
                                  href="@GetEditUrl(p.ProductID)">
-                            Edit
+                            Изменить
                         </NavLink>
                         <button class="btn btn-danger btn-sm"
                                 @onclick="@(e => DeleteProduct(p))">
-                            Delete
+                            Удалить
                         </button>
                     </td>
                 </tr>
@@ -47,7 +47,7 @@
         }
     </tbody>
 </table>
-<NavLink class="btn btn-primary" href="/admin/products/create">Create</NavLink>
+<NavLink class="btn btn-primary" href="/admin/products/create">Создать</NavLink>
 
 @code {
     public IStoreRepository Repository => Service;

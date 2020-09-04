@@ -18,22 +18,22 @@
         </div>
     }
     <div class="form-group">
-        <label>Name</label>
+        <label>Наименование</label>
         <ValidationMessage For="@(() => Product.Name)" />
         <InputText class="form-control" @bind-Value="Product.Name" />
     </div>
     <div class="form-group">
-        <label>Description</label>
+        <label>Описание</label>
         <ValidationMessage For="@(() => Product.Description)" />
         <InputText class="form-control" @bind-Value="Product.Description" />
     </div>
     <div class="form-group">
-        <label>Category</label>
+        <label>Категория</label>
         <ValidationMessage For="@(() => Product.Category)" />
         <InputText class="form-control" @bind-Value="Product.Category" />
     </div>
     <div class="form-group">
-        <label>Price</label>
+        <label>Цена</label>
         <ValidationMessage For="@(() => Product.Price)" />
         <InputNumber class="form-control" @bind-Value="Product.Price" />
     </div>
