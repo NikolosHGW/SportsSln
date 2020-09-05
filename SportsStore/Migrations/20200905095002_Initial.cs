@@ -2,7 +2,7 @@
 
 namespace SportsStore.Migrations
 {
-    public partial class Orders : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace SportsStore.Migrations
                 columns: table => new
                 {
                     OrderID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: false),
                     Line1 = table.Column<string>(nullable: false),
                     Line2 = table.Column<string>(nullable: true),
@@ -20,7 +20,8 @@ namespace SportsStore.Migrations
                     State = table.Column<string>(nullable: false),
                     Zip = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: false),
-                    GiftWrap = table.Column<bool>(nullable: false)
+                    GiftWrap = table.Column<bool>(nullable: false),
+                    Shipped = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,11 +29,27 @@ namespace SportsStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductID = table.Column<long>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(8, 2)", nullable: false),
+                    Category = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.ProductID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CartLine",
                 columns: table => new
                 {
                     CartLineID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     ProductID = table.Column<long>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     OrderID = table.Column<int>(nullable: true)
@@ -72,6 +89,9 @@ namespace SportsStore.Migrations
 
             migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

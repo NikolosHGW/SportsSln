@@ -29,7 +29,7 @@ namespace SportsStore
         {
             services.AddControllersWithViews();
             services.AddDbContext<StoreDbContext>(opts => {
-                opts.UseSqlServer(
+                opts.UseSqlite(
                 Configuration["ConnectionStrings:SportsStoreConnection"]);
             });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
@@ -41,7 +41,7 @@ namespace SportsStore
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddServerSideBlazor();
 
-            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:IdentityConnection"]));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
         }
 
