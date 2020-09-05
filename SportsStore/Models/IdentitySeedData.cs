@@ -8,8 +8,8 @@ namespace SportsStore.Models
 {
     public static class IdentitySeedData
     {
-        private const string adminUser = "Admin";
-        private const string adminPassword = "Secret123$";
+        private const string adminUser = "SuperAdmin007";
+        private const string adminPassword = "Rostov1823$admin";
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
             AppIdentityDbContext context = app.ApplicationServices
@@ -25,7 +25,7 @@ namespace SportsStore.Models
             IdentityUser user = await userManager.FindByIdAsync(adminUser);
             if (user == null)
             {
-                user = new IdentityUser("Admin");
+                user = new IdentityUser("SuperAdmin007");
                 user.Email = "admin@example.com";
                 user.PhoneNumber = "555-1234";
                 await userManager.CreateAsync(user, adminPassword);
