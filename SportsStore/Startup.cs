@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using SportsStore.Models;
 using Microsoft.AspNetCore.Identity;
+using System.IO;
 
 namespace SportsStore
 {
@@ -29,8 +30,7 @@ namespace SportsStore
         {
             services.AddControllersWithViews();
             services.AddDbContext<StoreDbContext>(opts => {
-                opts.UseSqlite(
-                Configuration["ConnectionStrings:SportsStoreConnection"]);
+                opts.UseSqlite("Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Store.sqlite"));
             });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
             services.AddScoped<IOrderRepository, EFOrderRepository>();
@@ -41,7 +41,7 @@ namespace SportsStore
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddServerSideBlazor();
 
-            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite("Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Identity.sqlite")));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
         }
 
