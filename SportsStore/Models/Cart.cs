@@ -24,6 +24,20 @@ namespace SportsStore.Models
                 line.Quantity += quantity;
             }
         }
+        public virtual void RemoveItem(Product product, int quantity)
+        {
+            CartLine line = Lines
+            .Where(p => p.Product.ProductID == product.ProductID)
+            .FirstOrDefault();
+            if (line.Quantity > 1)
+            {
+                line.Quantity -= quantity;
+            }
+            //else
+            //{
+            //    line.Quantity -= quantity;
+            //}
+        }
         public virtual void RemoveLine(Product product) =>
         Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
         public decimal ComputeTotalValue() =>

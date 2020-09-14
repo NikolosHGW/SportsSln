@@ -32,11 +32,17 @@ namespace SportsStore.Pages
             cl.Product.ProductID == productId).Product);
             return RedirectToPage(new { returnUrl = returnUrl });
         }
-        //public IActionResult OnPostPlus(long productId, string returnUrl)
-        //{
-        //    Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
-        //    Cart.AddItem(product, 1);
-        //    return RedirectToPage(new { returnUrl = returnUrl });
-        //}
+        public IActionResult OnPostPlus(long productId, string returnUrl)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            Cart.AddItem(product, 1);
+            return RedirectToPage(new { returnUrl = returnUrl });
+        }
+        public IActionResult OnPostMinus(long productId, string returnUrl)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            Cart.RemoveItem(product, 1);
+            return RedirectToPage(new { returnUrl = returnUrl });
+        }
     }
 }

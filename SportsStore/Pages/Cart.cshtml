@@ -1,11 +1,10 @@
 ﻿@page
 @model CartModel
-<script>
-    function minus() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('POST', 'test.php', true);
+<style>
+    .forma {
+        display:inline-block;
     }
-</script>
+</style>
 <h2>Ваша корзина</h2>
 <table class="table table-bordered table-striped">
     <thead>
@@ -20,7 +19,19 @@
         @foreach (var line in Model.Cart.Lines)
         {
         <tr>
-            <td class="text-center"><button onclick="minus()" class="btn btn-info">-</button>@line.Quantity<button onclick="@(line.Quantity+1)" class="btn btn-info">+</button></td>
+            <td class="text-center">
+                <form class="forma" asp-page-handler="Minus" method="post">
+                    <input type="hidden" name="ProductID" value="@line.Product.ProductID"/>
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
+                    <button type="submit" class="btn btn-info">-</button>
+                </form>
+                @line.Quantity
+                <form class="forma" asp-page-handler="Plus" method="post">
+                    <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-info">+</button>
+                </form>
+            </td>
             <td class="text-left">@line.Product.Name</td>
             <td class="text-right">@line.Product.Price.ToString("c")</td>
             <td class="text-right">
@@ -28,10 +39,8 @@
             </td>
             <td class="text-center">
                 <form asp-page-handler="Remove" method="post">
-                    <input type="hidden" name="ProductID"
-                           value="@line.Product.ProductID" />
-                    <input type="hidden" name="returnUrl"
-                           value="@Model.ReturnUrl" />
+                    <input type="hidden" name="ProductID" value="@line.Product.ProductID"/>
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
                     <button type="submit" class="btn btn-sm btn-danger">
                         Удалить
                     </button>
