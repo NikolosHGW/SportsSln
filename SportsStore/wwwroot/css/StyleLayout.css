@@ -1,8 +1,91 @@
-﻿.search-form {
-    display: inline-block;
+﻿.body {
+    margin: 0;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 
-.body {
-    margin-left: 160px;
-    margin-right: 160px;
+.header {
+    width: 100vw;
+    font-size: 14px;
+}
+
+.header-top {
+    height: 33px;
+    background-color: lightseagreen;
+    line-height: 1.42857;
+}
+
+.header-bottom {
+    height: 64px;
+    background-color: whitesmoke;
+}
+
+.nav {
+    height: 100%;
+    width: 1199px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.link-city {
+    margin: auto 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-ul {
+    margin: auto;
+    padding: 0;
+}
+
+.nav-li {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.no-right {
+    margin-right: 0px;
+}
+
+.link-nav-header-top {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+    .link-nav-header-top:hover {
+        text-decoration: none;
+        color: blue;
+    }
+
+.number-head {
+    margin: auto 0;
+    padding: 0;
+    color: white;
+}
+
+.nav-second {
+    height: 100%;
+    width: 1199px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+}
+
+.head5 {
+    margin: auto 50px auto 0;
+}
+
+.own-height {
+    margin: auto 0;
+    height: 38px
+}
+
+.korzina {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0;
+    margin-left: auto;
 }
