@@ -50,20 +50,22 @@
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                 </nav>
-                <div class="korzina">
+                <div class="cart-summary">
                     <vc:cart-summary />
                 </div>
             </div>
         </div>
     </header>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:navigation-menu />
+    <section class="section">
+        <div class="row div-section">
+            <div id="categories" class="col-3">
+                <vc:navigation-menu />
+            </div>
+            <div class="col-9">
+                @RenderBody()
+            </div>
         </div>
-        <div class="col-9">
-            @RenderBody()
-        </div>
-    </div>
+    </section>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

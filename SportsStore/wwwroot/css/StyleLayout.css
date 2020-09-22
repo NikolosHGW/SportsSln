@@ -6,6 +6,7 @@
 .header {
     width: 100vw;
     font-size: 14px;
+    margin-bottom: 50px;
 }
 
 .header-top {
@@ -83,9 +84,34 @@
     height: 38px
 }
 
-.korzina {
+.cart-summary {
     margin-top: auto;
     margin-bottom: auto;
     padding: 0;
     margin-left: auto;
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.div-section {
+    height: 100%;
+    width: 1199px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+}
+
+.col-3 {
+    padding-left: 5px;
+}
+
+.col-9 {
+    padding: 0;
 }
